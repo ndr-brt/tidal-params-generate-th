@@ -4,8 +4,7 @@ module Generate where
 
 import Language.Haskell.TH
 import Sound.Tidal.Params
-import Sound.Tidal.Pattern
-import Sound.Tidal.Context (ControlMap,ControlPattern,Enumerable,Time)
+import Sound.Tidal.Context (ControlPattern)
 
 paramF :: [String] -> Q [Dec]
 paramF names = do

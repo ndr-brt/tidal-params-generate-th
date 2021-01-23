@@ -9,3 +9,8 @@ then
 ```
 :l Main.hs
 ```
+
+## Transform Haskell to Template Haskell
+```
+runQ [d|name = pF "name"|]
+```
