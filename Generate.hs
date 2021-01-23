@@ -7,8 +7,6 @@ import Sound.Tidal.Params
 import Sound.Tidal.Pattern
 import Sound.Tidal.Context (ControlMap,ControlPattern,Enumerable,Time)
 
-import GHC.Types (Double)
-
 paramF :: [String] -> Q [Dec]
 paramF names = do
   let srt' = map (\x -> (mkName x, x)) names
