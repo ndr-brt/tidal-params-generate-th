@@ -1,4 +1,4 @@
 {-# LANGUAGE TemplateHaskell #-}
 
 import Generate
-$(paramF "pan")
+$(paramF ["first", "second", "third"])

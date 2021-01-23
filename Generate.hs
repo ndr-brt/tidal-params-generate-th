@@ -9,6 +9,11 @@ import Sound.Tidal.Context (ControlMap,ControlPattern,Enumerable,Time)
 
 import GHC.Types (Double)
 
-paramF :: String -> Q [Dec]
-paramF name = return [ValD (VarP name') (NormalB (AppE (UnboundVarE 'Sound.Tidal.Params.pF) (LitE (StringL name)))) []]
-  where name' = mkName name
+paramF :: [String] -> Q [Dec]
+paramF names = do
+  let srt' = map (\x -> (mkName x, x)) names
+  let decs = map (uncurry dec) srt'
+  return decs
+  where 
+    dec n s = ValD (VarP n) (NormalB (AppE (UnboundVarE 'Sound.Tidal.Params.pF) (LitE (StringL s)))) []
+
