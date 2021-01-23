@@ -1,6 +1,11 @@
-{-#LANGUAGE TemplateHaskell#-}
+{-# LANGUAGE TemplateHaskell #-}
+
 import Generate
+import Control.Monad
 
-$(paramF "ciccia")
-
-main = print haskell
+$(paramF "funziono")
+{- 
+main = do 
+  liftIO $ name' 3
+  return ()
+ -}
