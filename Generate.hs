@@ -10,5 +10,5 @@ import Sound.Tidal.Context (ControlMap,ControlPattern,Enumerable,Time)
 import GHC.Types (Double)
 
 paramF :: String -> Q [Dec]
-paramF name = [d| pippo = pF name |]
-  -- where name' = mkName name
+paramF name = return [ValD (VarP name') (NormalB (AppE (UnboundVarE 'Sound.Tidal.Params.pF) (LitE (StringL name)))) []]
+  where name' = mkName name
